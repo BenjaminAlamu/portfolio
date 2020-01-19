@@ -1,19 +1,26 @@
+import Link from "next/link";
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="">
       <header className="header">
         <div className="container header-container">
           <div className="logo">{"{ ... A }"}</div>
           <nav className="nav">
-            <a href="#" className="nav-link">
-              About.
-            </a>
-            <a href="#" className="nav-link">
-              Projects.
-            </a>
-            <a href="#" className="nav-link">
-              Contact.
-            </a>
+            <Link href="#about">
+              <a className="nav-link">
+                About <span className="dot">.</span>
+              </a>
+            </Link>
+            <Link href="#projects">
+              <a className="nav-link">
+                Projects<span className="dot">.</span>
+              </a>
+            </Link>
+            <Link href="#contact">
+              <a className="nav-link">
+                Contact<span className="dot">.</span>
+              </a>
+            </Link>
           </nav>
         </div>
       </header>
@@ -25,7 +32,7 @@ const Layout = ({ children }) => {
         }
         body {
           font-family: "Karla", sans-serif;
-          line-height: 1.5;
+          line-height: 1.6;
           font-weight: 300;
           margin: 0;
           background: linear-gradient(
@@ -33,6 +40,9 @@ const Layout = ({ children }) => {
             rgb(10, 25, 47, 0.98)
           );
           color: white;
+        }
+        html {
+          scroll-behavior: smooth;
         }
         img {
           width: 100%;
@@ -42,6 +52,8 @@ const Layout = ({ children }) => {
           width: 100%;
           padding: 0 1em;
           margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
         }
       `}</style>
       <style jsx>
@@ -53,6 +65,8 @@ const Layout = ({ children }) => {
           .header {
             position: absolute;
             width: 100%;
+            z-index: 100;
+            padding: 10px 0;
           }
           .header-container {
             display: flex;
@@ -69,6 +83,9 @@ const Layout = ({ children }) => {
             color: #fff;
             text-decoration: none;
             display: block;
+          }
+          .dot {
+            color: hsl(158, 68%, 42%);
           }
         `}
       </style>
