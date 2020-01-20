@@ -1,19 +1,97 @@
 import "../global-styles";
+import Link from "next/link";
+import { useState } from "react";
 const HomePage = () => {
+  const [projects] = useState([
+    {
+      id: 3,
+      imgUrl: "/tams.png",
+      name: "TAMS",
+      position: "20% 80%",
+      url: "https://signup.tams.com.ng/",
+      description:
+        "TAMS is an end-to-end human resource management solution designed to optimize operational efficiency and productivity. Made with vue and ❤️."
+    },
+    {
+      id: 2,
+      imgUrl: "/ste.png",
+      name: "Securetech STE",
+      position: "30% 80%",
+      url: "https://www.securetech.com.ng/ste/",
+      description: "The securetech training website. Made with Nuxt and ❤️."
+    },
+    {
+      id: 4,
+      imgUrl: "/note.png",
+      name: "Note",
+      position: "10% 0",
+      url: "https://super-notes.netlify.com/",
+      description:
+        "A simple note taking app made with react, react hooks, firebase and ❤️."
+    },
+    {
+      id: 5,
+      imgUrl: "/pricing-table.png",
+      name: "Pricing Table",
+      position: "40% 80%",
+      url: "https://codepen.io/AdePhil/full/povJzWO",
+      description: "A crytocurrency pricing table. Made with Vanilla Js and ❤️."
+    },
+    {
+      id: 8,
+      imgUrl: "/neya.png",
+      name: "Neya",
+      position: "20% 80%",
+      url: "https://neya.tams.com.ng/",
+      description:
+        "The Nigerian employee of the year voting website. Made with Nuxt and ❤️."
+    },
+    {
+      id: 7,
+      imgUrl: "/gallery.png",
+      name: "Image Gallery",
+      position: "50% 80%",
+      url: "https://app.netlify.com/sites/splash-super-search/overview",
+      description:
+        "An Image gallery displaying images from unsplash. Made with vue, netlify functions and ❤️."
+    },
+    {
+      id: 6,
+      imgUrl: "/country.png",
+      name: "World Countries",
+      position: "50% 80%",
+      url: "https://rest-countries.now.sh/",
+      description:
+        "A simple note taking app made with react, react hooks, firebase and ❤️."
+    },
+    {
+      id: 1,
+      imgUrl: "/calculator.png",
+      name: "Calculator",
+      position: "-20% 20%",
+      url: "https://vibrant-einstein-b93f38.netlify.com/",
+      description: "A simple iphone calculator made with vue.js & ❤️."
+    },
+    {
+      id: 9,
+      imgUrl: "/halloween.png",
+      name: "Halloween",
+      position: "-20% 10%",
+      url: "https://github.com/AdePhil/Halloween",
+      description: "A mobile UI implementation made with flutter and ❤️."
+    }
+  ]);
   return (
-    <div className="container">
-      <div className="about" id="about">
+    <div className="">
+      <div className="about container" id="about">
         <div className="about-text">
-          {/* <h2 className="">Hi I'm</h2> */}
           <p className="intro">Adebisi Ahmed Philip. </p>
           <p className="description">
             I am a frontend developer. I work majorly with react and vue. I like
             focusing on concepts rather than tools and languages. 3 key words
             that describe me are:
           </p>
-          <p>
-            Empathy&nbsp;&bull;&nbsp;Enthusiasm&nbsp;&bull;&nbsp; Curiosity.
-          </p>
+          <p>Empathy&nbsp;&bull;&nbsp;Enthusiasm&nbsp;&bull;&nbsp;Curiosity.</p>
         </div>
         <div className="socials">
           <a href="https://codepen.io/AdePhil" alt="codepen">
@@ -61,7 +139,44 @@ const HomePage = () => {
           </a>
         </div>
       </div>
-      <div className="projects" id="projects"></div>
+      <div className="projects" id="projects">
+        <div className="container projects-container">
+          <h2 className="project-heading">Projects</h2>
+          {projects.map(({ name, imgUrl, position, id, url, description }) => (
+            <div
+              key={id}
+              className="project"
+              style={{
+                background: `url(${imgUrl}) no-repeat`,
+                backgroundSize: "cover",
+                backgroundPosition: `${position}`
+              }}
+            >
+              <div className="project-description">
+                <div className="project-description-heading">
+                  <h3>{name}</h3>
+                  <Link href={url}>
+                    <a className="nav-link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        viewBox="0 0 194.818 194.818"
+                      >
+                        <title>External</title>
+                        <g>
+                          <path d="M185.818,2.161h-57.04c-4.971,0-9,4.029-9,9s4.029,9,9,9h35.312l-86.3,86.3c-3.515,3.515-3.515,9.213,0,12.728 c1.758,1.757,4.061,2.636,6.364,2.636s4.606-0.879,6.364-2.636l86.3-86.3v35.313c0,4.971,4.029,9,9,9s9-4.029,9-9v-57.04 C194.818,6.19,190.789,2.161,185.818,2.161z"></path>
+                          <path d="M149,77.201c-4.971,0-9,4.029-9,9v88.456H18v-122h93.778c4.971,0,9-4.029,9-9s-4.029-9-9-9H9c-4.971,0-9,4.029-9,9v140 c0,4.971,4.029,9,9,9h140c4.971,0,9-4.029,9-9V86.201C158,81.23,153.971,77.201,149,77.201z"></path>
+                        </g>
+                      </svg>
+                    </a>
+                  </Link>
+                </div>
+                <div className="project-description-body">{description}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       <style jsx>
         {`
           .about {
@@ -121,14 +236,72 @@ const HomePage = () => {
             fill: hsl(158, 68%, 42%);
           }
           .projects {
-            padding-top: 100px;
+            padding-top: 50px;
             min-height: 100vh;
             background: #0f1e34;
-            background-size: 140%;
-            background-position: 0 0;
-            display: flex;
-            align-items: center;
             position: relative;
+          }
+          .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            grid-auto-rows: 50px;
+            grid-auto-flow: dense;
+            grid-column-gap: 30px;
+            grid-row-gap: 20px;
+          }
+          .project-heading {
+            grid-column: 1 / -1;
+          }
+          .project {
+            background-size: cover;
+            grid-row: span 5;
+            position: relative;
+          }
+          .project:nth-child(2n) {
+            grid-row: span 6;
+          }
+          .project::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-color: rgb(10, 25, 47, 0.98);
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: 250ms ease;
+          }
+          .project:hover::after {
+            opacity: 0.98;
+          }
+          .project-description {
+            position: absolute;
+            padding: 10px;
+            color: #fff;
+            z-index: 5;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: 300ms ease;
+          }
+
+          .project-description-heading {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+          }
+          .project-description-body {
+            font-family: "Inconsolata", monospace;
+          }
+          .project:hover .project-description {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+          }
+          .project-description svg {
+            width: 20px;
+            fill: #fff;
           }
         `}
       </style>

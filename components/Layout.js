@@ -30,6 +30,12 @@ const Layout = ({ children }) => {
         * {
           box-sizing: border-box;
         }
+        :root {
+          --full-blue: rgb(10, 25, 47, 1)
+          --main-blue: rgb(10, 25, 47, 0.98);
+          --secondary-blue: #0f1e34;
+          --main-green: hsl(158, 68%, 42%);
+        }
         body {
           font-family: "Karla", sans-serif;
           line-height: 1.6;
