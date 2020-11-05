@@ -4,8 +4,8 @@ const Layout = ({ children }) => {
     <div className="">
       <header className="header">
         <div className="container header-container">
-          <div className="logo">{"{ ... A }"}</div>
-          <nav className="nav">
+          <div className="logo">{"{ ...BA }"}</div>
+          {/* <nav className="nav">
             <Link href="#about">
               <a className="nav-link">
                 About <span className="dot">.</span>
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
                 Contact<span className="dot">.</span>
               </a>
             </Link>
-          </nav>
+          </nav> */}
         </div>
       </header>
       <main className="main">{children}</main>
